@@ -29,9 +29,9 @@
 			String nombre, nacionalidad, fNacimiento;
 			%>
 		    <%
-			nombre = request.getParameter("nombre");
-			nacionalidad = request.getParameter("nacionalidad");
-			fNacimiento = request.getParameter("fNacimiento");
+			nombre = request.getParameter("Nombre");
+			nacionalidad = request.getParameter("Nacionalidad");
+			fNacimiento = request.getParameter("FNacimiento");
 
 			GestionBD.abrirConexion();
 			GestionBD.insertarAutor(nombre, nacionalidad, fNacimiento);
