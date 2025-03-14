@@ -8,7 +8,7 @@ import java.sql.Statement;
 
 public class GestionBD {
 
-	private static final String URL_BD = "localhost:3306/libros";
+	private static final String URL_BD = "jdbc:mysql://localhost:3306/libros";
 	private static final String CONTRASENNA = "";
 	private static final String USUARIO = "root";
 	private static Connection conexion;
@@ -64,7 +64,7 @@ public class GestionBD {
 		Statement sentencia = conexion.createStatement();
 		resultadoQuery = sentencia.executeQuery(
 				"select L.Isbn, L.Editorial, L.Titulo, L.Idioma, A.Nombre, T.Nombre from libro L INNER JOIN autor A ON L.Id_Autor = A.Id_Autor"
-				+ "INNER JOIN tematicas T on L.Id_Tematica=T.Id_Tematica");
+				+ " INNER JOIN tematicas T on L.Id_Tematica=T.Id_Tematica");
 
 		return resultadoQuery;
 

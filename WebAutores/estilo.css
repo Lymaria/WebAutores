@@ -33,7 +33,10 @@ h1{
     grid-row-start: 2;
     
 }
-
+fieldset {
+	font-size: 30px;
+	border: 2px solid rgb(155, 81, 238);
+}
    
 button{
 	background-color: rgb(155, 81, 238);

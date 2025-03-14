@@ -29,8 +29,10 @@
 		</div>
 		<div class="div4">
 			<%
-			GestionBD.abrirConexion();
-			ResultSet listado = GestionBD.consultarAutores();
+			try{
+				Class.forName("com.mysql.cj.jdbc.Driver");
+				GestionBD.abrirConexion();
+				ResultSet listado = GestionBD.consultarAutores();			
 			%>
 			<table>
 				<tr>
@@ -47,10 +49,13 @@
 					<td><%=listado.getString("fNacimiento")%></td>
 				</tr>
 
-				<%
-				}
-				GestionBD.cerrarConexion();
-				%>
+			<%
+			}
+			GestionBD.cerrarConexion();
+			}catch (SQLException e){
+				out.println(e.getMessage());
+			}
+			%>
 			</table>
 			<button>
 				<a href="index.html">Volver</a>

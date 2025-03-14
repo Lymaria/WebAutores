@@ -25,17 +25,21 @@
 			</button>
 		</div>
 		<div class="div4">
-			<%!
+			<%!			
 			String nombre, nacionalidad, fNacimiento;
 			%>
 		    <%
+		    Class.forName("com.mysql.cj.jdbc.Driver");
 			nombre = request.getParameter("Nombre");
 			nacionalidad = request.getParameter("Nacionalidad");
 			fNacimiento = request.getParameter("FNacimiento");
-
+			try {
 			GestionBD.abrirConexion();
 			GestionBD.insertarAutor(nombre, nacionalidad, fNacimiento);
 			GestionBD.cerrarConexion();
+			} catch (SQLException e) {
+				out.println(e.getMessage());
+			}
 			%>
 
 			<h1>El autor ha sido insertado correctamente</h1>
